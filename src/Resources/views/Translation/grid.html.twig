@@ -1,0 +1,89 @@
+{% extends layout %}
+
+{% trans_default_domain 'LexikTranslationBundle' %}
+
+{% block lexik_stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/lexiktranslation/css/translation.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/translationplugin/css/translation.css') }}">
+{% endblock %}
+
+{% block lexik_title %}{{ 'translations.page_title'|trans({}, 'LexikTranslationBundle') }}{% endblock %}
+
+{% block lexik_flash_message %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                {% set flashes = app.session.flashbag.all() %}
+                {% if flashes | length > 0 %}
+                    {% for type, messages in flashes %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ type }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock lexik_flash_message %}
+
+{% block lexik_content %}
+    <div class="container-fluid margin-row">
+        {% block lexik_toolbar %}
+            {% include '@TranslationPlugin/Translation/_gridToolbar.html.twig' %}
+        {% endblock lexik_toolbar %}
+
+        {% block lexik_data_grid %}
+            {% include '@LexikTranslationBundle/Translation/_ngGrid.html.twig' %}
+        {% endblock lexik_data_grid %}
+    </div>
+{% endblock %}
+
+{% block lexik_javascript_footer %}
+    {{ parent() }}
+
+    <script>
+        const translationCfg = {
+            locales: {{ locales | json_encode | raw }},
+            inputType: '{{ inputType }}',
+            autoCacheClean: {{ autoCacheClean ? 'true' : 'false' }},
+            profilerTokens: {{ tokens is not null ? (tokens | json_encode | raw) : 'null' }},
+            toggleSimilar: '{{ toggleSimilar }}',
+            csrfToken: '{{ csrf_token('lexik-translation') }}',
+            url: {
+                list: '{{ path('lexik_translation_list') }}',
+                listByToken: '{{ path('lexik_translation_profiler', {'token': '-token-'}) }}',
+                update: '{{ path('lexik_translation_update', {'id': '-id-'}) }}',
+                delete: '{{ path('lexik_translation_delete', {'id': '-id-'}) }}',
+                deleteLocale: '{{ path('lexik_translation_delete_locale', {'id': '-id-', 'locale': '-locale-'}) }}',
+                deleteChannelTranslation: '{{ path('abenmada_translation_plugin_channel_translation_delete', {'transUnitId': '-id-', 'locale': '-locale-', 'channelId': selectedChannel.id}) }}',
+                invalidateCache: '{{ path('lexik_translation_invalidate_cache') }}'
+            },
+            label: {
+                hideCol: '{{ 'translations.show_hide_columns'|trans }}',
+                toggleAllCol: '{{ 'translations.toggle_all_columns'|trans }}',
+                invalidateCache: '{{ 'translations.invalidate_cache'|trans }}',
+                allTranslations: '{{ 'translations.all_translations'|trans }}',
+                profiler: '{{ 'translations.profiler'|trans }}',
+                dataSource: '{{ 'translations.data_source'|trans }}',
+                latestProfiles: '{{ 'translations.latest_profiles'|trans }}',
+                profile: '{{ 'translations.profile'|trans }}',
+                saveRow: '{{ 'translations.save_row'|trans }}',
+                domain: '{{ 'translations.domain'|trans }}',
+                key: '{{ 'translations.key'|trans }}',
+                save: '{{ 'translations.save'|trans }}',
+                updateSuccess: '{{ 'translations.successfully_updated'|trans }}',
+                updateFail: '{{ 'translations.update_failed'|trans }}',
+                deleteSuccess: '{{ 'translations.successfully_deleted'|trans }}',
+                deleteFail: '{{ 'translations.delete_failed'|trans }}',
+                noTranslations: '{{ 'translations.no_translations'|trans }}'
+            }
+        };
+
+        const channel = {
+            code: '{{ selectedChannel.code }}',
+            name: '{{ selectedChannel.name }}'
+        }
+    </script>
+    <script src="{{ asset('bundles/translationplugin/js/translation.js') }}"></script>
+{% endblock %}

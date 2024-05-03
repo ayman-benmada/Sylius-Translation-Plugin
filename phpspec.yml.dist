@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Abenmada\TranslationPlugin
+        psr4_prefix: Abenmada\TranslationPlugin

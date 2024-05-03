@@ -1,0 +1,32 @@
+abenmada_translation_plugin_overview:
+    path: /channel_translations/overview
+    methods: [ GET ]
+    defaults:
+        _controller: abenmada_translation_plugin.controller.templating
+        _sylius:
+            section: admin
+            template: "@TranslationPlugin/Admin/Translation/Overview/index.html.twig"
+
+abenmada_translation_plugin_index:
+    path: /channel_translations/grid
+    methods: [ GET ]
+    defaults:
+        _controller: abenmada_translation_plugin.controller.templating
+        _sylius:
+            section: admin
+            template: "@TranslationPlugin/Admin/Translation/Index/index.html.twig"
+
+abenmada_translation_plugin_create:
+    path: /channel_translations/new
+    methods: [ GET ]
+    defaults:
+        _controller: abenmada_translation_plugin.controller.templating
+        _sylius:
+            section: admin
+            template: "@TranslationPlugin/Admin/Translation/Create/index.html.twig"
+
+abenmada_translation_plugin_channel_translation_delete:
+    path: /api/channel_translations/{transUnitId}/{locale}/{channelId}
+    methods: [ DELETE ]
+    defaults:
+        _controller: abenmada_translation_plugin.controller.rest:deleteChannelTranslationAction

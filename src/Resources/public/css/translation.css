@@ -1,0 +1,16 @@
+body {
+    background-color: inherit;
+}
+
+button.dropdown-toggle:focus + .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.dropdown-menu {
+    opacity: 0;
+    display: block;
+    visibility: hidden;
+    transition: visibility 0.5s;
+}

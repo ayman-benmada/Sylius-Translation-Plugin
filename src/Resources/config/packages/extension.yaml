@@ -1,0 +1,10 @@
+services:
+    Symfony\Bridge\Twig\Extension\TranslationExtension:
+        alias: twig.extension.trans
+
+    Abenmada\TranslationPlugin\Twig\TranslationExtension:
+        arguments:
+            $channelContext: '@sylius.context.channel'
+            $translationExtension: '@twig.extension.trans'
+        tags:
+            - { name: twig.extension, priority: 256 }

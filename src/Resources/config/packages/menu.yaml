@@ -1,0 +1,5 @@
+services:
+    abenmada_translation_plugin.listener.admin_menu:
+        class: Abenmada\TranslationPlugin\Menu\Listener\AdminMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: invoke }

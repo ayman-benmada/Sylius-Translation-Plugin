@@ -1,0 +1,7 @@
+abenmada_translation_plugin:
+    ui:
+        translations: Traductions
+        manage_your_translations: Gérer vos traductions
+        grid: Grille
+        overview: Aperçu
+        create_translation: Créer une traduction

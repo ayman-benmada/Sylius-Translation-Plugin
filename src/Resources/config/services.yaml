@@ -1,0 +1,19 @@
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    Abenmada\TranslationPlugin\:
+        resource: '../../*'
+        exclude: '../../../src/{DataGrid}'
+
+imports:
+    # LexikTranslationBundle
+    - { resource: "packages/lexik_translation.yaml" }
+
+    - { resource: "packages/resource.yaml" }
+    - { resource: "packages/controller.yaml" }
+    - { resource: "packages/service.yaml" }
+    - { resource: "packages/extension.yaml" }
+    - { resource: "packages/menu.yaml" }

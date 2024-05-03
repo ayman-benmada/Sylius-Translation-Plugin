@@ -1,0 +1,65 @@
+/public/assets
+/public/css
+/public/js
+/public/media
+!/public/media/image/.gitkeep
+
+/node_modules
+
+/etc/build/*
+!/etc/build/.gitignore
+
+/behat.yml
+/phpspec.yml
+
+/docker-compose.override.yaml
+/docker-compose.override.yml
+/docker/mysql/data/
+
+###> symfony/framework-bundle ###
+/.env
+/public/bundles
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> phpunit/phpunit ###
+/.phpunit.result.cache
+/phpunit.xml
+###< phpunit/phpunit ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+!/config/jwt/*-test.pem
+###< lexik/jwt-authentication-bundle ###
+
+###> IDE ###
+.idea
+.vscode
+###< IDE ###
+
+###> MacOS ###
+.DS_Store
+###< MacOS ###
+
+###> Vagrant ###
+Vagrantfile
+.vagrant
+###< Vagrant ###
+
+###> Log ###
+npm-debug.log
+yarn-error.log
+###< Log ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+###< symfony/webpack-encore-bundle ###
+
+.php-cs-fixer.cache

@@ -1,0 +1,5 @@
+lexik_translation:
+    resource: "routes/lexik_translation.yaml"
+
+abenmada_channel_translation:
+    resource: "routes/channel_translation.yaml"

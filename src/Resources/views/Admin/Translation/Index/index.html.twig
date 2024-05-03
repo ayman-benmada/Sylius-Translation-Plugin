@@ -1,0 +1,28 @@
+{% extends '@SyliusAdmin/layout.html.twig' %}
+
+{% block title %}{{ 'abenmada_translation_plugin.ui.translations'|trans }} {{ parent() }}{% endblock %}
+
+{% block content %}
+    <div class="ui stackable two column grid">
+        <div class="column">
+            {% include '@TranslationPlugin/Admin/Translation/Index/_header.html.twig' %}
+            {% include '@TranslationPlugin/Admin/Translation/Index/_breadcrumb.html.twig' %}
+        </div>
+
+        <div class="middle aligned column">
+            <div class="ui right floated buttons">
+                <a class="ui labeled icon button primary" href="{{ path('abenmada_translation_plugin_create') }}">
+                    <i class="plus icon"></i>
+                    {{ 'sylius.ui.create' | trans }}
+                </a>
+
+                <a class="ui labeled icon button yellow" href="{{ path('abenmada_translation_plugin_overview') }}">
+                    <i class="chart pie icon"></i>
+                    {{ 'abenmada_translation_plugin.ui.overview' | trans }}
+                </a>
+            </div>
+        </div>
+    </div><br/>
+
+    <iframe src="{{ path('lexik_translation_grid') }}" width="100%" height="800px" frameBorder="0"></iframe>
+{% endblock %}

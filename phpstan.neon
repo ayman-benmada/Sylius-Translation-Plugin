@@ -1,0 +1,8 @@
+parameters:
+    paths:
+        - src
+    excludePaths:
+        - src/DependencyInjection/*
+    level: max
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingIterableValueType: false

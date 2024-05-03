@@ -1,0 +1,16 @@
+services:
+    abenmada_translation_plugin.controller.translation:
+        class: Abenmada\TranslationPlugin\Controller\TranslationController
+        autowire: true
+        autoconfigure: true
+
+    abenmada_translation_plugin.controller.rest:
+        class: Abenmada\TranslationPlugin\Controller\RestController
+        autowire: true
+        autoconfigure: true
+
+    abenmada_translation_plugin.controller.templating:
+        class: Abenmada\TranslationPlugin\Controller\TemplatingController
+        arguments:
+            $templatingEngine: '@twig'
+        tags: [ 'controller.service_arguments' ]

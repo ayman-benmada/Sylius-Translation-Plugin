@@ -1,0 +1,11 @@
+services:
+    Abenmada\TranslationPlugin\Service\ChannelServiceInterface:
+        alias: abenmada_translation_plugin.service.channel
+
+    abenmada_translation_plugin.service.channel:
+        class: Abenmada\TranslationPlugin\Service\ChannelService
+        public: true
+        arguments:
+            - '@sylius.context.channel'
+            - '@request_stack'
+            - '@sylius.repository.channel'

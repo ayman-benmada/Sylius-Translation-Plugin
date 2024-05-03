@@ -1,0 +1,7 @@
+sylius_resource:
+    resources:
+        abenmada_translation_plugin.channel_translation:
+            driver: doctrine/orm
+            classes:
+                model: Abenmada\TranslationPlugin\Entity\Channel\ChannelTranslation
+                repository: Abenmada\TranslationPlugin\Repository\ChannelTranslationRepository

@@ -1,0 +1,16 @@
+{% if channels | length > 1 %}
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ selectedChannel.name }} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            {% for channel in channels | filter ((channel) => channel.code != selectedChannel.code) %}
+                <li>
+                    <a href="{{ path('lexik_translation_grid', {'channelCode': channel.code}) }}">{{ channel.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+<hr/>

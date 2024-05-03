@@ -1,0 +1,8 @@
+{% import '@SyliusAdmin/Macro/breadcrumb.html.twig' as breadcrumb %}
+
+{% set breadcrumbs = [
+    { label: 'sylius.ui.administration'|trans, url: path('sylius_admin_dashboard') },
+    { label: 'abenmada_translation_plugin.ui.translations'|trans },
+] %}
+
+{{ breadcrumb.crumble(breadcrumbs) }}
