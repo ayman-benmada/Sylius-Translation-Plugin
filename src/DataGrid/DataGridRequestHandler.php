@@ -27,9 +27,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class DataGridRequestHandler extends BaseDataGridRequestHandler
 {
     public function __construct(
-        private ChannelTranslationRepository $channelTranslationRepository,
-        private FactoryInterface $channelTranslationFactory,
-        private ObjectManager $channelTranslationManager,
+        private readonly ChannelTranslationRepository $channelTranslationRepository,
+        private readonly FactoryInterface $channelTranslationFactory,
+        private readonly ObjectManager $channelTranslationManager,
         TransUnitManagerInterface $transUnitManager,
         FileManagerInterface $fileManager,
         StorageInterface $storage,

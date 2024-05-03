@@ -12,7 +12,7 @@ use Symfony\Component\Translation\MessageCatalogue;
 class DatabaseLoader extends BaseDatabaseLoader
 {
     public function __construct(
-        private ChannelTranslationRepository $channelTranslationRepository,
+        private readonly ChannelTranslationRepository $channelTranslationRepository,
         protected StorageInterface $storage
     ) {
         parent::__construct($storage);

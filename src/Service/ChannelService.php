@@ -9,7 +9,7 @@ use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
 use Sylius\Component\Core\Model\Channel;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-final class ChannelService implements ChannelServiceInterface
+final readonly class ChannelService implements ChannelServiceInterface
 {
     public function __construct(
         private ChannelContextInterface $channelContext,

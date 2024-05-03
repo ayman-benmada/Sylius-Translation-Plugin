@@ -23,8 +23,8 @@ use Symfony\Component\HttpFoundation\Request;
 final class RestController extends BaseRestController
 {
     public function __construct(
-        private ChannelServiceInterface $channelService,
-        private ChannelTranslationRepository $channelTranslationRepository,
+        private readonly ChannelServiceInterface $channelService,
+        private readonly ChannelTranslationRepository $channelTranslationRepository,
         protected DataGridRequestHandler $dataGridRequestHandler,
         protected DataGridFormatter $dataGridFormatter,
         protected StorageInterface $translationStorage,

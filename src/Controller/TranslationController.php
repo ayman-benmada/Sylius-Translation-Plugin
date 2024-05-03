@@ -23,9 +23,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 final class TranslationController extends BaseTranslationController
 {
     public function __construct(
-        private ChannelServiceInterface $channelService,
-        private ChannelRepositoryInterface $channelRepository,
-        private FlashBagInterface $flashBag,
+        private readonly ChannelServiceInterface $channelService,
+        private readonly ChannelRepositoryInterface $channelRepository,
+        private readonly FlashBagInterface $flashBag,
         protected StorageInterface $translationStorage,
         protected StatsAggregator $statsAggregator,
         protected TransUnitFormHandler $transUnitFormHandler,

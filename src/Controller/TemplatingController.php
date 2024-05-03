@@ -11,7 +11,7 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-final class TemplatingController
+final readonly class TemplatingController
 {
     public function __construct(private Environment $templatingEngine)
     {
