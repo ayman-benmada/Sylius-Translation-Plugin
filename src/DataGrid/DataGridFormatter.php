@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Abenmada\TranslationPlugin\DataGrid;
 
+use function array_key_exists;
+use function in_array;
+use function is_object;
 use Lexik\Bundle\TranslationBundle\Entity\TransUnit;
 use Lexik\Bundle\TranslationBundle\Manager\LocaleManagerInterface;
 use Lexik\Bundle\TranslationBundle\Storage\StorageInterface;
 use Lexik\Bundle\TranslationBundle\Util\DataGrid\DataGridFormatter as BaseDataGridFormatter;
 use Symfony\Component\HttpFoundation\JsonResponse;
-
-use function array_key_exists;
-use function in_array;
-use function is_object;
 
 class DataGridFormatter extends BaseDataGridFormatter
 {
@@ -61,13 +60,13 @@ class DataGridFormatter extends BaseDataGridFormatter
 
         // Then fill locales value
         foreach ($transUnit['translations'] as $translation) {
-            if (! in_array($translation['locale'], $locales, true)) {
+            if (!in_array($translation['locale'], $locales, true)) {
                 continue;
             }
 
             $formatted[$translation['locale']] = $translation['content'];
 
-            if (! array_key_exists('channel_translation', $translation)) {
+            if (!array_key_exists('channel_translation', $translation)) {
                 continue;
             }
 

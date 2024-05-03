@@ -4,23 +4,21 @@ declare(strict_types=1);
 
 namespace Abenmada\TranslationPlugin\Controller;
 
+use Abenmada\TranslationPlugin\DataGrid\DataGridFormatter;
+use Abenmada\TranslationPlugin\DataGrid\DataGridRequestHandler;
+use Abenmada\TranslationPlugin\Entity\Channel\ChannelTranslation;
+use Abenmada\TranslationPlugin\Repository\ChannelTranslationRepository;
+use Abenmada\TranslationPlugin\Service\ChannelServiceInterface;
 use Doctrine\ORM\NonUniqueResultException;
 use Lexik\Bundle\TranslationBundle\Controller\RestController as BaseRestController;
 use Lexik\Bundle\TranslationBundle\Entity\Translation;
 use Lexik\Bundle\TranslationBundle\Entity\TransUnit;
 use Lexik\Bundle\TranslationBundle\Manager\TransUnitManagerInterface;
 use Lexik\Bundle\TranslationBundle\Storage\StorageInterface;
-use Abenmada\TranslationPlugin\DataGrid\DataGridFormatter;
-use Abenmada\TranslationPlugin\DataGrid\DataGridRequestHandler;
-use Abenmada\TranslationPlugin\Entity\Channel\ChannelTranslation;
-use Abenmada\TranslationPlugin\Repository\ChannelTranslationRepository;
-use Abenmada\TranslationPlugin\Service\ChannelServiceInterface;
 use Safe\Exceptions\StringsException;
 use Sylius\Component\Locale\Model\LocaleInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-
-use function Safe\sprintf;
 
 final class RestController extends BaseRestController
 {
@@ -93,7 +91,7 @@ final class RestController extends BaseRestController
     }
 
     /**
-     * @param int $id
+     * @param int    $id
      * @param string $locale
      *
      * @throws StringsException

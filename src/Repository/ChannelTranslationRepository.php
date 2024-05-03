@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Abenmada\TranslationPlugin\Repository;
 
+use Abenmada\TranslationPlugin\Entity\Channel\ChannelTranslation;
 use Doctrine\ORM\NonUniqueResultException;
 use Lexik\Bundle\TranslationBundle\Entity\Translation;
-use Abenmada\TranslationPlugin\Entity\Channel\ChannelTranslation;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Sylius\Component\Channel\Model\ChannelInterface;
 

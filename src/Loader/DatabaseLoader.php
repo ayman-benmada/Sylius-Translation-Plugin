@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Abenmada\TranslationPlugin\Loader;
 
+use Abenmada\TranslationPlugin\Repository\ChannelTranslationRepository;
 use Lexik\Bundle\TranslationBundle\Storage\StorageInterface;
 use Lexik\Bundle\TranslationBundle\Translation\Loader\DatabaseLoader as BaseDatabaseLoader;
-use Abenmada\TranslationPlugin\Repository\ChannelTranslationRepository;
 use Symfony\Component\Translation\MessageCatalogue;
 
 class DatabaseLoader extends BaseDatabaseLoader

@@ -12,6 +12,7 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="abenmada_translation_channel_translation")
  */
 class ChannelTranslation implements ResourceInterface
@@ -20,7 +21,9 @@ class ChannelTranslation implements ResourceInterface
 
     /**
      * @ORM\Id
+     *
      * @ORM\GeneratedValue
+     *
      * @ORM\Column(type="integer")
      */
     private ?int $id = null;
@@ -30,12 +33,14 @@ class ChannelTranslation implements ResourceInterface
 
     /**
      * @ORM\ManyToOne(targetEntity=Translation::class, inversedBy="channelTranslations")
+     *
      * @ORM\JoinColumn(name="translation_id")
      */
     private Translation $translation;
 
     /**
      * @ORM\ManyToOne(targetEntity=Channel::class, inversedBy="channelTranslations")
+     *
      * @ORM\JoinColumn(name="channel_id", nullable=false)
      */
     private Channel $channel;

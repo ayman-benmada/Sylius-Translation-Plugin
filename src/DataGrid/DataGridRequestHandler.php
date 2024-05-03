@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Abenmada\TranslationPlugin\DataGrid;
 
+use Abenmada\TranslationPlugin\Entity\Channel\ChannelTranslation;
+use Abenmada\TranslationPlugin\Repository\ChannelTranslationRepository;
+use function array_merge;
+use function count;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ObjectManager;
 use Lexik\Bundle\TranslationBundle\Document\TransUnit as TransUnitDocument;
@@ -14,17 +18,11 @@ use Lexik\Bundle\TranslationBundle\Manager\LocaleManagerInterface;
 use Lexik\Bundle\TranslationBundle\Manager\TransUnitManagerInterface;
 use Lexik\Bundle\TranslationBundle\Storage\StorageInterface;
 use Lexik\Bundle\TranslationBundle\Util\DataGrid\DataGridRequestHandler as BaseDataGridRequestHandler;
-use Abenmada\TranslationPlugin\Entity\Channel\ChannelTranslation;
-use Abenmada\TranslationPlugin\Repository\ChannelTranslationRepository;
 use Safe\Exceptions\StringsException;
 use Sylius\Component\Core\Model\Channel;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-
-use function array_merge;
-use function count;
-use function Safe\sprintf;
 
 class DataGridRequestHandler extends BaseDataGridRequestHandler
 {
@@ -51,10 +49,10 @@ class DataGridRequestHandler extends BaseDataGridRequestHandler
             $parameters
         );
 
-        for ($i = 0; $i < count($transUnits); $i++) {
+        for ($i = 0; $i < count($transUnits); ++$i) {
             $channelTranslations = $this->channelTranslationRepository->findTransUnitsByChannelAndLocalesAndKey($channel, $locales, $transUnits[$i]['key']);
 
-            for ($j = 0; $j < count($transUnits[$i]['translations']); $j++) {
+            for ($j = 0; $j < count($transUnits[$i]['translations']); ++$j) {
                 $translation = $transUnits[$i]['translations'][$j];
                 $translation['channel_translation'] = '';
 

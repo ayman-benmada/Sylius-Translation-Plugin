@@ -1,21 +1,16 @@
 {
     "name": "abenmada/translation-plugin",
-    "type": "project",
+    "type": "sylius-plugin",
     "description": "The plugin enhances the Lexik translation bundle by incorporating a channel-based translation feature and adapting the visual appearance to the back-office theme.",
-    "keywords": [
-        "symfony",
-        "sylius",
-        "translation",
-        "design"
-    ],
-    "license": "proprietary",
+    "keywords": ["sylius", "sylius-plugin", "symfony", "e-commerce", "translation"],
+    "license": "MIT",
     "authors": [
         {
-            "name": "Ayman Benmada"
+            "name": "Ayman BENMADA"
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.0",
         "lexik/translation-bundle": "^6.0",
         "sylius/sylius": "^1.10"
     },
@@ -32,27 +27,23 @@
         "friends-of-behat/suite-settings-extension": "^1.0",
         "friends-of-behat/symfony-extension": "^2.1",
         "friends-of-behat/variadic-extension": "^1.3",
-        "friendsofsymfony/oauth-server-bundle": "^1.6 || >2.0.0-alpha.0 ^2.0@dev",
-        "phpspec/phpspec": "^7.0",
+        "friendsofphp/php-cs-fixer": "^3.9",
+        "phpspec/phpspec": "^7.2",
         "phpstan/extension-installer": "^1.0",
-        "phpstan/phpstan": "0.12.99",
-        "phpstan/phpstan-doctrine": "0.12.33",
-        "phpstan/phpstan-strict-rules": "^0.12.0",
-        "phpstan/phpstan-webmozart-assert": "0.12.12",
+        "phpstan/phpstan": "^1.8.1",
+        "phpstan/phpstan-doctrine": "1.3.40",
+        "phpstan/phpstan-strict-rules": "^1.3.0",
+        "phpstan/phpstan-webmozart-assert": "^1.2.0",
         "phpunit/phpunit": "^9.5",
-        "sensiolabs/security-checker": "^6.0",
-        "squizlabs/php_codesniffer": "^3.6",
-        "doctrine/coding-standard": "^9.0",
-        "sylius-labs/coding-standard": "^4.0",
-        "symfony/browser-kit": "^4.4 || ^5.2",
-        "symfony/debug-bundle": "^4.4 || ^5.2",
-        "symfony/dotenv": "^4.4 || ^5.2",
-        "symfony/intl": "^4.4 || ^5.2",
-        "symfony/web-profiler-bundle": "^4.4 || ^5.2",
-        "vimeo/psalm": "4.7.1",
         "polishsymfonycommunity/symfony-mocker-container": "^1.0",
-        "thecodingmachine/phpstan-safe-rule": "^1.0",
-        "thecodingmachine/phpstan-strict-rules": "^0.12.1"
+        "sylius-labs/coding-standard": "^4.2",
+        "symfony/browser-kit": "^5.4 || ^6.0",
+        "symfony/debug-bundle": "^5.4 || ^6.0",
+        "symfony/dotenv": "^5.4 || ^6.0",
+        "symfony/flex": "^2.2.2",
+        "symfony/intl": "^5.4 || ^6.0",
+        "symfony/web-profiler-bundle": "^5.4 || ^6.0",
+        "vimeo/psalm": "4.30.0"
     },
     "config": {
         "sort-packages": true,
@@ -60,14 +51,19 @@
             "symfony/thanks": true,
             "composer/package-versions-deprecated": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "symfony/flex": false
         }
     },
     "extra": {
         "branch-alias": {
             "dev-master": "1.10-dev"
+        },
+        "symfony": {
+            "require": "^5.4 || ^6.0"
         }
     },
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Abenmada\\TranslationPlugin\\": "src/",
@@ -93,10 +89,8 @@
             "php bin/create_node_symlink.php"
         ],
         "phpstan": "phpstan analyse -c phpstan.neon -vvv --memory-limit=1024M",
-        "phpstan-baseline": "phpstan analyse -c phpstan.neon -vvv --memory-limit=1024M --generate-baseline",
-        "cscheck": "phpcs -s",
-        "csfix": "phpcbf -s",
-        "pest": "pest --coverage",
-        "lint": "composer csfix && composer cscheck && composer phpstan && composer pest"
+        "cscheck": "vendor/bin/php-cs-fixer fix --dry-run",
+        "csfix": "vendor/bin/php-cs-fixer fix",
+        "lint": "composer csfix && composer cscheck && composer phpstan"
     }
 }

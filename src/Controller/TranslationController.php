@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Abenmada\TranslationPlugin\Controller;
 
+use Abenmada\TranslationPlugin\Service\ChannelServiceInterface;
 use Lexik\Bundle\TranslationBundle\Controller\TranslationController as BaseTranslationController;
 use Lexik\Bundle\TranslationBundle\Form\Handler\TransUnitFormHandler;
 use Lexik\Bundle\TranslationBundle\Form\Type\TransUnitType;
@@ -12,7 +13,6 @@ use Lexik\Bundle\TranslationBundle\Storage\StorageInterface;
 use Lexik\Bundle\TranslationBundle\Translation\Translator;
 use Lexik\Bundle\TranslationBundle\Util\Overview\StatsAggregator;
 use Lexik\Bundle\TranslationBundle\Util\Profiler\TokenFinder;
-use Abenmada\TranslationPlugin\Service\ChannelServiceInterface;
 use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
 use Sylius\Component\Locale\Model\LocaleInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -54,7 +54,7 @@ final class TranslationController extends BaseTranslationController
     {
         $tokens = null;
 
-        /** @phpstan-ignore-next-line */
+        // @phpstan-ignore-next-line
         if ($this->getParameter('lexik_translation.dev_tools.enable') && $this->tokenFinder !== null) {
             $tokens = $this->tokenFinder->find();
         }

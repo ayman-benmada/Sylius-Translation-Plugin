@@ -6,23 +6,10 @@
 
 ## Installation
 
-Add in `composer.json`
+Require plugin with composer :
 
-```json
-{
-    "repositories": [
-        {
-            "type": "path",
-            "url": "plugin/TranslationPlugin",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
-    "require": {
-        "abenmada/translation-plugin": "@dev"
-    }
-}
+```bash
+composer require abenmada/translation-plugin
 ```
 
 Change your `config/bundles.php` file to add the line for the plugin :
@@ -49,7 +36,7 @@ Then import the routes in `config/routes/abenmada_translation_plugin.yaml` :
 ```yaml
 abenmada_translation_plugin_routing:
     resource: "@TranslationPlugin/Resources/config/routes.yaml"
-    prefix: /admin/translations
+    prefix: /%sylius_admin.path_name%/translations
 ```
 
 Update the entity `src/Entity/Channel/Channel.php` :
@@ -80,6 +67,11 @@ class Channel extends BaseChannel
         parent::__construct();
     }
 }
+```
+
+Run the migration :
+```bash
+bin/console doctrine:migration:migrate
 ```
 
 To import translations files content into your database :

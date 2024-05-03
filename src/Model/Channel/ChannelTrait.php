@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Abenmada\TranslationPlugin\Model\Channel;
 
+use Abenmada\TranslationPlugin\Entity\Channel\ChannelTranslation;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Abenmada\TranslationPlugin\Entity\Channel\ChannelTranslation;
 
 trait ChannelTrait
 {
