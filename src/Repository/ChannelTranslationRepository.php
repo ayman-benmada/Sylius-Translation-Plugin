@@ -35,7 +35,7 @@ class ChannelTranslationRepository extends EntityRepository
      */
     public function findByChannelAndTranslation(ChannelInterface $channel, Translation $translation): ?ChannelTranslation
     {
-        return $this
+        return $this // @phpstan-ignore-line
             ->createQueryBuilder('ct')
             ->leftJoin('ct.channel', 'channel')
             ->leftJoin('ct.translation', 'translation')
@@ -52,7 +52,7 @@ class ChannelTranslationRepository extends EntityRepository
      */
     public function findAllByTranslation(Translation $translation): array
     {
-        return $this
+        return $this // @phpstan-ignore-line
             ->createQueryBuilder('ct')
             ->leftJoin('ct.translation', 'translation')
             ->where('translation.id = :translationId')
@@ -66,7 +66,7 @@ class ChannelTranslationRepository extends EntityRepository
      */
     public function findAllByLocaleAndDomain(string $locale, string $domain): array
     {
-        return $this
+        return $this // @phpstan-ignore-line
             ->createQueryBuilder('ct')
             ->leftJoin('ct.translation', 'translation')
             ->leftJoin('translation.transUnit', 'transUnit')

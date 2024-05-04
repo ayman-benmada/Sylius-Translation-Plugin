@@ -75,8 +75,10 @@ final class RestController extends BaseRestController
             throw $this->createNotFoundException(sprintf('No TransUnit found for id "%s".', $id));
         }
 
+        /** @var Translation $translation */
         foreach ($transUnit->getTranslations() as $translation) {
             $channelTranslations = $this->channelTranslationRepository->findAllByTranslation($translation);
+
             foreach ($channelTranslations as $channelTranslation) {
                 $this->channelTranslationRepository->remove($channelTranslation);
             }

@@ -18,6 +18,7 @@ class DatabaseLoader extends BaseDatabaseLoader
         parent::__construct($storage);
     }
 
+    // @phpstan-ignore-next-line
     public function load($resource, $locale, $domain = 'messages'): MessageCatalogue
     {
         $catalogue = parent::load($resource, $locale, $domain);

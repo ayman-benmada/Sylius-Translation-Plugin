@@ -31,6 +31,6 @@ final readonly class TemplatingController
     {
         $attributes = $request->attributes->get('_sylius');
 
-        return $attributes[$attribute] ?? $default;
+        return $attributes[$attribute] ?? $default; // @phpstan-ignore-line
     }
 }
