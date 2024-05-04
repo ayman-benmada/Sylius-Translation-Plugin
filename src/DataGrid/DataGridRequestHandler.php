@@ -18,7 +18,6 @@ use Lexik\Bundle\TranslationBundle\Manager\LocaleManagerInterface;
 use Lexik\Bundle\TranslationBundle\Manager\TransUnitManagerInterface;
 use Lexik\Bundle\TranslationBundle\Storage\StorageInterface;
 use Lexik\Bundle\TranslationBundle\Util\DataGrid\DataGridRequestHandler as BaseDataGridRequestHandler;
-use Safe\Exceptions\StringsException;
 use Sylius\Component\Core\Model\Channel;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -73,7 +72,7 @@ class DataGridRequestHandler extends BaseDataGridRequestHandler
     }
 
     /**
-     * @throws NonUniqueResultException|StringsException
+     * @throws NonUniqueResultException
      */
     public function updateFromRequestAndChannelAndLocales(int $id, Request $request, Channel $channel, array $locales): array
     {

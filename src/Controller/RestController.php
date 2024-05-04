@@ -15,7 +15,6 @@ use Lexik\Bundle\TranslationBundle\Entity\Translation;
 use Lexik\Bundle\TranslationBundle\Entity\TransUnit;
 use Lexik\Bundle\TranslationBundle\Manager\TransUnitManagerInterface;
 use Lexik\Bundle\TranslationBundle\Storage\StorageInterface;
-use Safe\Exceptions\StringsException;
 use Sylius\Component\Locale\Model\LocaleInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,7 +46,7 @@ final class RestController extends BaseRestController
     /**
      * @param int|string $id
      *
-     * @throws NonUniqueResultException|StringsException
+     * @throws NonUniqueResultException
      */
     public function updateAction(Request $request, $id): JsonResponse
     {
@@ -64,8 +63,6 @@ final class RestController extends BaseRestController
 
     /**
      * @param int $id
-     *
-     * @throws StringsException
      */
     public function deleteAction($id): JsonResponse
     {
@@ -93,8 +90,6 @@ final class RestController extends BaseRestController
     /**
      * @param int    $id
      * @param string $locale
-     *
-     * @throws StringsException
      */
     public function deleteTranslationAction($id, $locale): JsonResponse
     {
@@ -122,9 +117,6 @@ final class RestController extends BaseRestController
         return new JsonResponse(['deleted' => true], $deleted ? 200 : 400);
     }
 
-    /**
-     * @throws StringsException
-     */
     public function deleteChannelTranslationAction(int $transUnitId, string $locale, int $channelId): JsonResponse
     {
         $this->checkCsrf();
