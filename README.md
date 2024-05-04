@@ -101,7 +101,7 @@ Install the assets :
 bin/console assets:install --ansi
 ```
 
-To import translations files content into your database :
+import translations files content into your database :
 
 ```bash
 bin/console lexik:translations:import
