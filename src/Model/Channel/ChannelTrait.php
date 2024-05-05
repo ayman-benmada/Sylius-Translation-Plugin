@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 trait ChannelTrait
 {
-    /** @ORM\OneToMany(targetEntity=ChannelTranslation::class, mappedBy="channel", orphanRemoval=true, cascade={"all"}) */
+    #[ORM\OneToMany(targetEntity: ChannelTranslation::class, mappedBy: 'channel', orphanRemoval: true, cascade: ['all'])]
     private Collection $channelTranslations;
 
     public function getChannelTranslations(): Collection

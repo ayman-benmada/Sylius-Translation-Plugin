@@ -15,6 +15,8 @@ use Sylius\Component\Resource\Model\ResourceInterface;
  *
  * @ORM\Table(name="abenmada_translation_channel_translation")
  */
+#[ORM\Table(name: 'abenmada_translation_channel_translation')]
+#[ORM\Entity]
 class ChannelTranslation implements ResourceInterface
 {
     use TimestampableEntity;
@@ -26,9 +28,13 @@ class ChannelTranslation implements ResourceInterface
      *
      * @ORM\Column(type="integer")
      */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
     /** @ORM\Column(name="content", type="string", length=255, nullable=false) */
+    #[ORM\Column(name: 'content', type: 'string', length: 255, nullable: false)]
     private string $content;
 
     /**
@@ -36,6 +42,8 @@ class ChannelTranslation implements ResourceInterface
      *
      * @ORM\JoinColumn(name="translation_id")
      */
+    #[ORM\JoinColumn(name: 'translation_id')]
+    #[ORM\ManyToOne(targetEntity: Translation::class, inversedBy: 'channelTranslations')]
     private Translation $translation;
 
     /**
@@ -43,6 +51,8 @@ class ChannelTranslation implements ResourceInterface
      *
      * @ORM\JoinColumn(name="channel_id", nullable=false)
      */
+    #[ORM\JoinColumn(name: 'channel_id', nullable: false)]
+    #[ORM\ManyToOne(targetEntity: Channel::class, inversedBy: 'channelTranslations')]
     private Channel $channel;
 
     public function getId(): ?int
