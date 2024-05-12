@@ -1,5 +1,5 @@
 {
-    "name": "abenmada/translation-plugin",
+    "name": "abenmada/sylius-translation-plugin",
     "type": "sylius-plugin",
     "description": "The plugin enhances the Lexik translation bundle by incorporating a channel-based translation feature and adapting the visual appearance to the back-office theme.",
     "keywords": ["sylius", "sylius-plugin", "symfony", "e-commerce", "translation"],

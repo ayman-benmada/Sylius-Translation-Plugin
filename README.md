@@ -1,4 +1,4 @@
-<h1>Translation plugin</h1>
+<h1>Sylius Translation Plugin</h1>
 
 <p>
     The plugin enhances the <a href="https://github.com/lexik/LexikTranslationBundle">Lexik translation bundle</a> by incorporating a channel-based translation feature and adapting the visual appearance to the back-office theme.
@@ -30,7 +30,7 @@ You also have a preview page to visualize the number of missing translations for
 Require plugin with composer :
 
 ```bash
-composer require abenmada/translation-plugin
+composer require abenmada/sylius-translation-plugin
 ```
 
 Change your `config/bundles.php` file to add the line for the plugin :
