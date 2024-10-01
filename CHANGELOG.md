@@ -15,3 +15,7 @@
 ## CHANGELOG FOR `v1.0.2` (2024-05-12)
 
 - Update plugin name
+
+## CHANGELOG FOR `v1.0.3` (2024-10-01)
+
+- Fixed deprecation in lexik_translation.yaml 
