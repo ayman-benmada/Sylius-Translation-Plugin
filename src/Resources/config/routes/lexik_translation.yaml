@@ -2,25 +2,25 @@ lexik_translation_overview:
     path: /overview
     methods: [ GET ]
     defaults:
-        _controller: abenmada_translation_plugin.controller.translation:overviewAction
+        _controller: abenmada_translation_plugin.controller.translation::overviewAction
 
 lexik_translation_grid:
     path: /grid
     methods: [ GET ]
     defaults:
-        _controller: abenmada_translation_plugin.controller.translation:gridAction
+        _controller: abenmada_translation_plugin.controller.translation::gridAction
 
 lexik_translation_new:
     path: /new
     methods: [ GET, POST ]
     defaults:
-        _controller: abenmada_translation_plugin.controller.translation:newAction
+        _controller: abenmada_translation_plugin.controller.translation::newAction
 
 lexik_translation_invalidate_cache:
     path: /invalidate-cache
     methods: [ GET ]
     defaults:
-        _controller: abenmada_translation_plugin.controller.translation:invalidateCacheAction
+        _controller: abenmada_translation_plugin.controller.translation::invalidateCacheAction
 
 # API -----------------------------------
 lexik_translation_list:
@@ -33,22 +33,22 @@ lexik_translation_profiler:
     path: /api/profiler/{token}
     methods: [ GET ]
     defaults:
-        _controller: abenmada_translation_plugin.controller.rest:listByProfileAction
+        _controller: abenmada_translation_plugin.controller.rest::listByProfileAction
 
 lexik_translation_update:
     path: /api/{id}
     methods: [ PUT ]
     defaults:
-        _controller: abenmada_translation_plugin.controller.rest:updateAction
+        _controller: abenmada_translation_plugin.controller.rest::updateAction
 
 lexik_translation_delete_locale:
     path: /api/{id}/{locale}
     methods: [ DELETE ]
     defaults:
-        _controller: abenmada_translation_plugin.controller.rest:deleteTranslationAction
+        _controller: abenmada_translation_plugin.controller.rest::deleteTranslationAction
 
 lexik_translation_delete:
     path: /api/{id}
     methods: [ DELETE ]
     defaults:
-        _controller: abenmada_translation_plugin.controller.rest:deleteAction
+        _controller: abenmada_translation_plugin.controller.rest::deleteAction
